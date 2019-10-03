@@ -61,7 +61,50 @@ def display_board
     end
   end
   
-  
+  def won?
+    WIN_COMBINATIONS.detect do |combo|
+      board[combo[0]] == board[combo[1]] &&
+      board[combo[1]] == board[combo[2]] &&
+      position_taken?(combo[0])
+    end
+  end
+
+  def full?
+    board.all?{|token| token == "X" || token == "O"}
+  end
+
+  def draw?
+    !won? && full?
+  end
+
+  def over?
+    won? || draw?
+  end
+
+  def winner
+    WIN_COMBINATIONS.detect do |win_combo|
+        if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
+          return "X"
+        elsif (@board[win_combo[0]]) == "O" && (@board[win_combo[1]]) == "O" && (@board[win_combo[2]]) == "O"
+          return "O"
+        else
+          nil
+        end
+      end
+  end
+
+  def play
+    while !over?
+      turn
+    end
+    if won?
+      puts "Congratulations #{winner}!"
+    elsif draw?
+      puts "Cat's Game!"
+    end
+  end
+
+end
     
     
   
