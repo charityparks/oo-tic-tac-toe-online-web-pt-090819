@@ -76,7 +76,7 @@ class TicTacToe
       move(index, current_player)
       display_board
     else
-      
+       puts "Invalid selection, please choose a position between 1-9."
       turn
     end
   end
