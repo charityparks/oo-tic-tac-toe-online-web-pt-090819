@@ -77,8 +77,10 @@ class TicTacToe
       display_board
     else
        puts "Invalid selection, please choose a position between 1-9."
-       user_input = gets.strip
+       
+      #user_input = gets.strip
       #turn
+      
     end
   end
   
