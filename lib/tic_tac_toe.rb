@@ -60,4 +60,9 @@ def display_board
       turn
     end
   end
+  
+  def won?
+    
+    
+  
 end
